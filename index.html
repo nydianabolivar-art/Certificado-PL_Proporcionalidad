@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proporcionalidad Compuesta — Profesional en Lenguas</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f8f9fc;
+    --border: #e2e6f0;
+    --accent: #7c3aed; /* Púrpura - Profesional en Lenguas */
+    --accent-light: #f5f3ff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --success: #10b981;
+    --danger: #ef4444;
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Sora', sans-serif; line-height: 1.6; }
+
+  header {
+    background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%);
+    color: white; padding: 60px 20px; text-align: center;
+  }
+  header h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; }
+
+  nav {
+    background: white; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100;
+    display: flex; justify-content: center; gap: 5px; padding: 10px;
+  }
+  nav button {
+    background: none; border: none; padding: 10px 15px; font-weight: 600;
+    color: var(--text-muted); cursor: pointer; border-radius: 8px; transition: 0.3s;
+  }
+  nav button.active { background: var(--accent-light); color: var(--accent); }
+
+  main { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+  .section { display: none; animation: fadeIn 0.4s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; margin-bottom: 25px; }
+  .card h3 { color: var(--accent); margin-bottom: 15px; }
+
+  .cuadro-recordar {
+    background: #fdf2f8; border-left: 6px solid #db2777; padding: 25px;
+    border-radius: 8px; margin: 30px 0;
+  }
+
+  .quiz-item { background: white; border: 1px solid var(--border); padding: 25px; border-radius: var(--radius); margin-bottom: 20px; }
+  .option-btn {
+    display: block; width: 100%; text-align: left; padding: 15px; margin: 8px 0;
+    border: 1px solid var(--border); border-radius: 8px; cursor: pointer; background: white; transition: 0.2s;
+  }
+  .option-btn:hover { border-color: var(--accent); background: var(--accent-light); }
+  .option-btn.selected-correct { background: #dcfce7; border-color: var(--success); color: #065f46; font-weight: 600; }
+  .option-btn.selected-wrong { background: #fee2e2; border-color: var(--danger); color: #991b1b; }
+
+  .feedback { margin-top: 10px; padding: 15px; border-radius: 8px; display: none; font-size: 0.9rem; border: 1px solid transparent; }
+  .feedback.show { display: block; }
+
+  .btn-main {
+    background: var(--accent); color: white; border: none; padding: 15px 30px;
+    border-radius: 8px; font-weight: 700; cursor: pointer; display: block; margin: 30px auto;
+  }
+
+  #cert-area {
+    display: none; border: 15px double var(--accent); padding: 60px 40px;
+    text-align: center; background: white; margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🌍 Proporcionalidad Compuesta</h1>
+  <p>Gestión de Proyectos Lingüísticos y Traducción Profesional</p>
+</header>
+
+<nav>
+  <button class="active" onclick="showTab('inicio', this)">🏠 Inicio</button>
+  <button onclick="showTab('teoria', this)">📖 Conceptos</button>
+  <button onclick="showTab('metodo', this)">🧮 Método</button>
+  <button onclick="showTab('examen', this)">✏️ Examen</button>
+</nav>
+
+<main>
+  <section id="inicio" class="section active">
+    <div class="card">
+      <h3>Matemáticas para Traductores</h3>
+      <p>Como <strong>Profesional en Lenguas</strong>, gestionarás proyectos de gran escala. ¿Cuántos traductores necesitas para entregar 100,000 palabras en 5 días si trabajan 8 horas diarias? La proporcionalidad compuesta es tu herramienta para cotizar y planificar con éxito.</p>
+    </div>
+    <div class="cuadro-recordar">
+      <h4>📌 PARA RECORDAR SIEMPRE</h4>
+      <p><strong>Directa:</strong> Más palabras a traducir implica más tiempo de trabajo.</p>
+      <p><strong>Inversa:</strong> Más traductores en un proyecto implica menos días para la entrega.</p>
+      <p><em>Importante:</em> Siempre analiza la relación de cada variable respecto a la incógnita.</p>
+    </div>
+  </section>
+
+  <section id="teoria" class="section">
+    <div class="card">
+      <h3>¿Cómo se aplica en Lenguas?</h3>
+      <p>Involucra al menos tres magnitudes que afectan la producción lingüística:</p>
+      <ul>
+        <li><strong>Volumen:</strong> Cantidad de palabras, caracteres o cuartillas.</li>
+        <li><strong>Recursos Humanos:</strong> Traductores, revisores, intérpretes.</li>
+        <li><strong>Tiempo:</strong> Plazos de entrega, horas por jornada.</li>
+        <li><strong>Dificultad:</strong> Tecnicismo del texto (Rendimiento).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="metodo" class="section">
+    <div class="card">
+      <h3>El Procedimiento Profesional</h3>
+      <ol style="margin-left: 20px;">
+        <li>Agrupar las magnitudes en columnas.</li>
+        <li>Identificar la relación (D o I) comparando con la columna de la incógnita.</li>
+        <li>Plantear la igualdad: <strong>Fracción de incógnita = Producto de las otras fracciones</strong> (invirtiendo si es inversa).</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="examen" class="section">
+    <h2>Evaluación de Gestión Lingüística</h2>
+    <p>Responde los 10 ejercicios aleatorios. Debes acertar al menos 8 para certificarte.</p>
+    <div id="quiz-container"></div>
+    <button class="btn-main" onclick="evaluarExamen()">Finalizar y Validar Certificado</button>
+
+    <div id="cert-area">
+      <h2 style="color: var(--accent); font-size: 2rem;">DIPLOMA DE COMPETENCIA</h2>
+      <p style="margin: 20px 0;">Se certifica que:</p>
+      <h1 id="user-name-cert" style="font-family: 'Lora', serif; font-size: 3rem; border-bottom: 2px solid #ccc; display: inline-block; min-width: 350px;">---</h1>
+      <p style="margin-top: 30px;">Ha demostrado dominio en <strong>Proporcionalidad Compuesta</strong> para la gestión de proyectos de traducción y servicios lingüísticos.</p>
+      <p id="cert-date" style="margin-top: 40px; font-weight: bold;"></p>
+    </div>
+  </section>
+</main>
+
+<script>
+const bancoPreguntas = [
+  { q: "3 traductores traducen 15,000 palabras en 5 días. ¿Cuántos días tardarán 5 traductores en traducir 25,000 palabras?", opts: ["5 días", "3 días", "7 días"], c: "5 días", exp: "Palabras(D): 25/15. Traductores(I): 3/5. Cálculo: 5 * (25/15) * (3/5) = 5." },
+  { q: "Un intérprete cobra $600 por 4 horas de servicio en 2 eventos. ¿Cuánto cobrarán 3 intérpretes por 6 horas en 1 evento?", opts: ["$675", "$900", "$450"], c: "$675", exp: "Intérpretes(D): 3/1. Horas(D): 6/4. Eventos(D): 1/2. 600 * 3 * 1.5 * 0.5 = 675." },
+  { q: "Para localizar un software de 40,000 strings, 2 ingenieros tardan 10 días trabajando 8h/día. ¿Cuántos días tardarán 4 ingenieros para 60,000 strings trabajando 6h/día?", opts: ["10 días", "12 días", "8 días"], c: "10 días", exp: "Strings(D): 60/40. Ingenieros(I): 2/4. Horas(I): 8/6. 10 * 1.5 * 0.5 * 1.33 = 10." },
+  { q: "10 revisores corrigen 500 páginas en 4 días. ¿Cuántas páginas corregirán 6 revisores en 10 días?", opts: ["750 páginas", "600 páginas", "800 páginas"], c: "750 páginas", exp: "Revisores(D): 6/10. Días(D): 10/4. 500 * 0.6 * 2.5 = 750." },
+  { q: "Un equipo de 4 traductores produce 12 subtítulos por hora. ¿Cuántos subtítulos producirán 6 traductores en 3 horas?", opts: ["54", "36", "48"], c: "54", exp: "Traductores(D): 6/4. Tiempo(D): 3/1. 12 * 1.5 * 3 = 54." },
+  { q: "Si 2 terminólogos extraen 200 términos en 5 horas. ¿Cuántos terminólogos se requieren para extraer 400 términos en 2 horas?", opts: ["10", "8", "5"], c: "10", exp: "Términos(D): 400/200. Horas(I): 5/2. 2 * 2 * 2.5 = 10." },
+  { q: "Una agencia paga $1,200 a 3 traductores por 10 días de disponibilidad. ¿Cuánto pagará a 5 traductores por 6 días?", opts: ["$1,200", "$1,500", "$1,000"], c: "$1,200", exp: "Traductores(D): 5/3. Días(D): 6/10. 1200 * (5/3) * 0.6 = 1200." },
+  { q: "8 transcriptores procesan 40 audios en 2 días. ¿Cuántos días tardarán 4 transcriptores en procesar 60 audios?", opts: ["6 días", "4 días", "8 días"], c: "6 días", exp: "Transcriptores(I): 8/4. Audios(D): 60/40. 2 * 2 * 1.5 = 6." },
+  { q: "Un proyecto editorial de 300 páginas con 2 diagramadores tarda 15 días. ¿Cuántos diagramadores se necesitan para 200 páginas en 5 días?", opts: ["4", "3", "6"], c: "4", exp: "Páginas(D): 200/300. Días(I): 15/5. 2 * 0.66 * 3 = 4." },
+  { q: "Si para traducir una patente de 10,000 palabras se usan 2 traductores por 4 días trabajando 5h/día. ¿Cuántas horas diarias deben trabajar 1 traductor para traducir 5,000 palabras en 4 días?", opts: ["5 horas", "2.5 horas", "10 horas"], c: "5 horas", exp: "Palabras(D): 5/10. Traductores(I): 2/1. Días(I): 4/4. 5 * 0.5 * 2 * 1 = 5." }
+];
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+function showTab(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function renderQuiz() {
+  const container = document.getElementById('quiz-container');
+  container.innerHTML = "";
+  const preguntasBarajadas = shuffle([...bancoPreguntas]);
+  
+  preguntasBarajadas.forEach((p, i) => {
+    const opcionesBarajadas = shuffle([...p.opts]);
+    const div = document.createElement('div');
+    div.className = 'quiz-item';
+    div.innerHTML = `<h4>${i+1}. ${p.q}</h4>` + 
+      opcionesBarajadas.map(opt => `<button class="option-btn" onclick="validar(this, '${opt}', '${p.c}', '${p.exp}', ${i})">${opt}</button>`).join('') +
+      `<div id="feed-${i}" class="feedback"></div>`;
+    container.appendChild(div);
+  });
+}
+
+function validar(btn, elegida, correcta, explicacion, index) {
+  const feed = document.getElementById(`feed-${index}`);
+  const hermanos = btn.parentElement.querySelectorAll('.option-btn');
+  hermanos.forEach(b => b.style.pointerEvents = "none");
+
+  if(elegida === correcta) {
+    btn.classList.add('selected-correct');
+    feed.innerHTML = "✅ ¡Correcto! " + explicacion;
+    feed.style.borderColor = "var(--success)";
+    feed.style.color = "#065f46";
+    feed.classList.add('show');
+  } else {
+    btn.classList.add('selected-wrong');
+    feed.innerHTML = "❌ Incorrecto. La respuesta era " + correcta + ". " + explicacion;
+    feed.style.borderColor = "var(--danger)";
+    feed.style.color = "#991b1b";
+    feed.classList.add('show');
+  }
+}
+
+function evaluarExamen() {
+  const aciertos = document.querySelectorAll('.selected-correct').length;
+  if(aciertos >= 8) {
+    const nombre = prompt("¡Aprobado con " + aciertos + "/10! Ingresa tu nombre:");
+    if(nombre) {
+      document.getElementById('user-name-cert').innerText = nombre.toUpperCase();
+      document.getElementById('cert-date').innerText = "Fecha: " + new Date().toLocaleDateString();
+      document.getElementById('cert-area').style.display = "block";
+      window.scrollTo({top: document.getElementById('cert-area').offsetTop, behavior: 'smooth'});
+    }
+  } else {
+    alert("Obtuviste " + aciertos + "/10. Necesitas 8 para el certificado. ¡Inténtalo de nuevo!");
+    location.reload(); // Recarga para barajar de nuevo
+  }
+}
+
+renderQuiz();
+</script>
+</body>
+</html>
